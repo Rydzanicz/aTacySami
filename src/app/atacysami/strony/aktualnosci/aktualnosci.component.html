@@ -1,0 +1,44 @@
+<section class="container page">
+  <div class="page-header">
+    <span class="eyebrow">Co u nas słychać</span>
+    <h1>Aktualności</h1>
+    <p>Zobacz, co robiliśmy w poszczególnych latach — zadania publiczne, wydarzenia
+      i wsparcia, które udało nam się zrealizować.</p>
+  </div>
+
+  <div class="lata-tabs" *ngIf="lata.length > 1">
+    <button
+      *ngFor="let rok of lata"
+      class="rok-tab"
+      [class.active]="rok === rokWybrany"
+      (click)="wybierzRok(rok)">
+      {{ rok }}
+    </button>
+  </div>
+
+  <div class="wpisy" [class.wpisy-anim]="animujKarte">
+    <article class="post card" *ngFor="let w of wpisyRoku">
+      <span class="post-data">{{ w.data }}</span>
+      <h2>{{ w.tytul }}</h2>
+
+      <p *ngFor="let akapit of w.tresc">{{ akapit }}</p>
+
+      <div class="sekcja" *ngFor="let s of w.sekcje">
+        <h3>{{ s.tytul }}</h3>
+        <ul>
+          <li *ngFor="let pozycja of s.pozycje">{{ pozycja }}</li>
+        </ul>
+      </div>
+
+      <div class="galeria" *ngIf="w.zdjecia?.length">
+        <img *ngFor="let zdjecie of w.zdjecia" [src]="zdjecie" [alt]="w.tytul" loading="lazy">
+      </div>
+
+      <a class="link-fb" *ngIf="w.link" [href]="w.link" target="_blank" rel="noopener">
+        Zobacz post na Facebooku <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </article>
+
+    <p class="brak" *ngIf="!wpisyRoku.length">Brak wpisów dla wybranego roku.</p>
+  </div>
+</section>

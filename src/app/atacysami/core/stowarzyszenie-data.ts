@@ -58,7 +58,6 @@ export const ORGANIZACJA = {
   adres: '59-300 Lubin, Aleja Komisji Edukacji Narodowej 6, woj. dolnośląskie',
   telefon: '665-044-559',
   email: 'atacysami@gazeta.pl',
-  www: 'www.atacysami.pl.tl',
   konto: '78 1090 2082 0000 0001 1056 2462',
   misja:
     'Rozwijanie i propagowanie inicjatyw, postaw i działań sprzyjających rehabilitacji ' +
@@ -174,9 +173,9 @@ export const PARTNERZY: Partner[] = [
   { nazwa: 'EMC Szpitale', opis: 'Partner medyczny', logo: 'assets/images/ATS/partners/partner-4.jpg' },
   { nazwa: 'LIBROM', opis: 'Hurtownia elektryczna — darczyńca', logo: 'assets/images/ATS/partners/partner-2.jpg' },
   { nazwa: 'Górzyńska Piekarnia', opis: 'Darczyńca', logo: 'assets/images/ATS/partners/partner-1.jpg' },
-  { nazwa: 'Herb Miasta Lubina', opis: 'Gmina Miejska Lubin', logo: 'assets/images/ATS/partners/partner-9.png' },
-  { nazwa: 'Herb Szklar Górnych', opis: 'Społeczność lokalna', logo: 'assets/images/ATS/partners/partner-10.gif' },
-  { nazwa: 'Partner przemysłowy', opis: 'Wsparcie rzeczowe', logo: 'assets/images/ATS/partners/partner-6.jpg' }
+  { nazwa: 'Godło Miasta Lubina', opis: 'Gmina Miejska Lubin', logo: 'assets/images/ATS/partners/partner-9.png' },
+  { nazwa: 'Godło Szklar Górnych', opis: 'Społeczność lokalna', logo: 'assets/images/ATS/partners/partner-10.gif' },
+  { nazwa: 'Zespół Szkół Nr 1 im. prof. Bolesława Krupińskiego w Lubinie', opis: 'Wsparcie rzeczowe', logo: 'assets/images/ATS/partners/partner-6.jpg' }
 ];
 
 export const PARTNERZY_DODATKOWI: string[] = [
