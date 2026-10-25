@@ -61,7 +61,19 @@
       <span class="chip" *ngFor="let w of r.wspolpraca">{{ w }}</span>
     </div>
   </div>
-
+  <!-- Pobieranie sprawozdania -->
+  <div class="pobierz-box">
+    <div>
+      <h4>Pełne sprawozdanie za rok {{ r.rok }}</h4>
+      <p>Pobierz oficjalny dokument w formacie PDF.</p>
+    </div>
+    <a class="btn-pobierz"
+       [href]="'assets/sprawozdania/sprawozdanie-' + r.rok + '.pdf'"
+       [download]="'sprawozdanie-' + r.rok + '.pdf'"
+       target="_blank" rel="noopener">
+      <i class="fa-solid fa-file-arrow-down"></i> Pobierz sprawozdanie (PDF)
+    </a>
+  </div>
   <!-- Nawigacja między latami -->
   <div class="rok-nav">
     <a *ngIf="poprzedni" [routerLink]="['/atacysami/sprawozdania', poprzedni]" class="btn ghost">

@@ -30,8 +30,46 @@
         </ul>
       </div>
 
-      <div class="galeria" *ngIf="w.zdjecia?.length">
-        <img *ngFor="let zdjecie of w.zdjecia" [src]="zdjecie" [alt]="w.tytul" loading="lazy">
+      <!-- Galeria: jedno duże zdjęcie + miniatury -->
+      <div class="galeria" *ngIf="zdjecia(w).length">
+        <div class="galeria-glowne">
+          <img
+            class="galeria-img"
+            [src]="zdjecia(w)[indeks(w)]"
+            [alt]="w.tytul"
+            title="Kliknij, aby powiększyć"
+            (click)="otworzLightbox(w, indeks(w))">
+
+          <button type="button" class="gal-nav gal-prev" *ngIf="zdjecia(w).length > 1"
+                  (click)="poprzednie(w)" aria-label="Poprzednie zdjęcie">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button type="button" class="gal-nav gal-next" *ngIf="zdjecia(w).length > 1"
+                  (click)="nastepne(w)" aria-label="Następne zdjęcie">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <button type="button" class="gal-powieksz"
+                  (click)="otworzLightbox(w, indeks(w))" aria-label="Powiększ zdjęcie">
+            <i class="fa-solid fa-expand"></i>
+          </button>
+
+          <span class="gal-licznik" *ngIf="zdjecia(w).length > 1">
+            {{ indeks(w) + 1 }} / {{ zdjecia(w).length }}
+          </span>
+        </div>
+
+        <div class="galeria-miniatury" *ngIf="zdjecia(w).length > 1">
+          <button
+            type="button"
+            class="miniatura"
+            *ngFor="let z of zdjecia(w); let i = index"
+            [class.active]="i === indeks(w)"
+            (click)="wybierz(w, i)"
+            [attr.aria-label]="'Pokaż zdjęcie ' + (i + 1)">
+            <img [src]="z" alt="" loading="lazy">
+          </button>
+        </div>
       </div>
 
       <a class="link-fb" *ngIf="w.link" [href]="w.link" target="_blank" rel="noopener">
@@ -42,3 +80,27 @@
     <p class="brak" *ngIf="!wpisyRoku.length">Brak wpisów dla wybranego roku.</p>
   </div>
 </section>
+
+<!-- Powiększenie zdjęcia (lightbox) -->
+<div class="lightbox" *ngIf="lightbox" (click)="zamknijLightbox()">
+  <button type="button" class="lb-zamknij" (click)="zamknijLightbox()" aria-label="Zamknij">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <button type="button" class="lb-nav lb-prev" *ngIf="lbLiczba() > 1"
+          (click)="$event.stopPropagation(); lbPoprzednie()" aria-label="Poprzednie zdjęcie">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+
+  <img class="lb-img" [src]="lbZdjecie()" [alt]="lightbox.wpis.tytul"
+       (click)="$event.stopPropagation()">
+
+  <button type="button" class="lb-nav lb-next" *ngIf="lbLiczba() > 1"
+          (click)="$event.stopPropagation(); lbNastepne()" aria-label="Następne zdjęcie">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+
+  <span class="lb-licznik" *ngIf="lbLiczba() > 1">
+    {{ lightbox.indeks + 1 }} / {{ lbLiczba() }}
+  </span>
+</div>

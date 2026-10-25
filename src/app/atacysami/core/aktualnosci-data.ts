@@ -61,9 +61,6 @@ export const AKTUALNOSCI: Aktualnosc[] = [
           'Wsparcie w zakupie biletów wstępu do różnych atrakcji dla podopiecznych przebywających na wypoczynku w Pobierowie.'
         ]
       }
-    ],
-    zdjecia: [
-      'assets/images/ATS/aktualnosci/2026-aktualnosci-01.jpg'
     ]
   },
   {
