@@ -56,7 +56,9 @@ export class AktualnosciComponent {
   wybierz(w: Aktualnosc, i: number): void {
     this.aktywne[this.klucz(w)] = i;
   }
-
+trackByZdjecie(index: number, zdjecie: string): string {
+  return zdjecie;
+}
   nastepne(w: Aktualnosc): void {
     const n = this.zdjecia(w).length;
     this.wybierz(w, (this.indeks(w) + 1) % n);

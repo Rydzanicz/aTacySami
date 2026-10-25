@@ -58,7 +58,6 @@ export const ORGANIZACJA = {
   adres: '59-300 Lubin, Aleja Komisji Edukacji Narodowej 6, woj. dolnośląskie',
   telefon: '665-044-559',
   email: 'atacysami@gazeta.pl',
-  www: 'www.atacysami.pl.tl',
   konto: '78 1090 2082 0000 0001 1056 2462',
   misja:
     'Rozwijanie i propagowanie inicjatyw, postaw i działań sprzyjających rehabilitacji ' +
@@ -167,6 +166,8 @@ export const INNE_ORGANY: Osoba[] = [
 ];
 
 export const PARTNERZY: Partner[] = [
+  { nazwa: 'Powiat Lubiński',  logo: 'assets/images/ATS/partners/partner-9.png' },
+  { nazwa: 'Gmina Miasto Lubin',  logo: 'assets/images/ATS/partners/partner-10.png' },
   { nazwa: 'Urząd Marszałkowski Województwa Dolnośląskiego', opis: 'Dotacje na zadania publiczne', logo: 'assets/images/ATS/partners/partner-5.jpg' },
   { nazwa: 'PFRON', opis: 'Państwowy Fundusz Rehabilitacji Osób Niepełnosprawnych', logo: 'assets/images/ATS/partners/partner-3.jpg' },
   { nazwa: 'Ośrodek Szkolno-Wychowawczy im. Przyjaciół Dzieci w Lubinie', opis: 'Placówka afiliowana', logo: 'assets/images/ATS/partners/partner-8.png' },
@@ -174,8 +175,6 @@ export const PARTNERZY: Partner[] = [
   { nazwa: 'EMC Szpitale', opis: 'Partner medyczny', logo: 'assets/images/ATS/partners/partner-4.jpg' },
   { nazwa: 'LIBROM', opis: 'Hurtownia elektryczna — darczyńca', logo: 'assets/images/ATS/partners/partner-2.jpg' },
   { nazwa: 'Górzyńska Piekarnia', opis: 'Darczyńca', logo: 'assets/images/ATS/partners/partner-1.jpg' },
-  { nazwa: 'Godło Miasta Lubina', opis: 'Gmina Miejska Lubin', logo: 'assets/images/ATS/partners/partner-9.png' },
-  { nazwa: 'Godło Szklar Górnych', opis: 'Społeczność lokalna', logo: 'assets/images/ATS/partners/partner-10.gif' },
   { nazwa: 'Zespół Szkół Nr 1 im. prof. Bolesława Krupińskiego w Lubinie', opis: 'Wsparcie rzeczowe', logo: 'assets/images/ATS/partners/partner-6.jpg' }
 ];
 

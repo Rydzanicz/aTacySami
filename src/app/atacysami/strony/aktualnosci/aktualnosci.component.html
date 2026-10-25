@@ -31,43 +31,68 @@
       </div>
 
       <!-- Galeria: jedno duże zdjęcie + miniatury -->
+      <!-- Galeria: główne zdjęcie ładuje się przy zbliżeniu do niego -->
       <div class="galeria" *ngIf="zdjecia(w).length">
         <div class="galeria-glowne">
           <img
             class="galeria-img"
             [src]="zdjecia(w)[indeks(w)]"
             [alt]="w.tytul"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+            width="1200"
+            height="800"
             title="Kliknij, aby powiększyć"
             (click)="otworzLightbox(w, indeks(w))">
 
-          <button type="button" class="gal-nav gal-prev" *ngIf="zdjecia(w).length > 1"
-                  (click)="poprzednie(w)" aria-label="Poprzednie zdjęcie">
+          <button
+            type="button"
+            class="gal-nav gal-prev"
+            *ngIf="zdjecia(w).length > 1"
+            (click)="poprzednie(w)"
+            aria-label="Poprzednie zdjęcie">
             <i class="fa-solid fa-chevron-left"></i>
           </button>
-          <button type="button" class="gal-nav gal-next" *ngIf="zdjecia(w).length > 1"
-                  (click)="nastepne(w)" aria-label="Następne zdjęcie">
+
+          <button
+            type="button"
+            class="gal-nav gal-next"
+            *ngIf="zdjecia(w).length > 1"
+            (click)="nastepne(w)"
+            aria-label="Następne zdjęcie">
             <i class="fa-solid fa-chevron-right"></i>
           </button>
 
-          <button type="button" class="gal-powieksz"
-                  (click)="otworzLightbox(w, indeks(w))" aria-label="Powiększ zdjęcie">
+          <button
+            type="button"
+            class="gal-powieksz"
+            (click)="otworzLightbox(w, indeks(w))"
+            aria-label="Powiększ zdjęcie">
             <i class="fa-solid fa-expand"></i>
           </button>
 
           <span class="gal-licznik" *ngIf="zdjecia(w).length > 1">
-            {{ indeks(w) + 1 }} / {{ zdjecia(w).length }}
-          </span>
+      {{ indeks(w) + 1 }} / {{ zdjecia(w).length }}
+    </span>
         </div>
 
         <div class="galeria-miniatury" *ngIf="zdjecia(w).length > 1">
           <button
             type="button"
             class="miniatura"
-            *ngFor="let z of zdjecia(w); let i = index"
+            *ngFor="let z of zdjecia(w); let i = index; trackBy: trackByZdjecie"
             [class.active]="i === indeks(w)"
             (click)="wybierz(w, i)"
             [attr.aria-label]="'Pokaż zdjęcie ' + (i + 1)">
-            <img [src]="z" alt="" loading="lazy">
+            <img
+              [src]="z"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+              width="168"
+              height="124">
           </button>
         </div>
       </div>
@@ -92,8 +117,12 @@
     <i class="fa-solid fa-chevron-left"></i>
   </button>
 
-  <img class="lb-img" [src]="lbZdjecie()" [alt]="lightbox.wpis.tytul"
-       (click)="$event.stopPropagation()">
+  <img
+    class="lb-img"
+    [src]="lbZdjecie()"
+    [alt]="lightbox.wpis.tytul"
+    decoding="async"
+    (click)="$event.stopPropagation()">
 
   <button type="button" class="lb-nav lb-next" *ngIf="lbLiczba() > 1"
           (click)="$event.stopPropagation(); lbNastepne()" aria-label="Następne zdjęcie">
