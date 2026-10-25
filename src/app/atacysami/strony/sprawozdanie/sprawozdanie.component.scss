@@ -125,3 +125,31 @@
   .kpi-grid { grid-template-columns: 1fr 1fr; }
   .dwie-kolumny { grid-template-columns: 1fr; }
 }
+
+.pobierz-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 22px 26px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.pobierz-box h4 { margin: 0 0 4px; color: var(--brand-dark); }
+.pobierz-box p { margin: 0; color: var(--muted); }
+
+.btn-pobierz {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background .2s, transform .2s;
+}
+.btn-pobierz:hover { background: var(--brand-dark); text-decoration: none; transform: translateY(-2px); }

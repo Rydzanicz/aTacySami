@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ORGANIZACJA, SPRAWOZDANIA } from '../../core/stowarzyszenie-data';
+import { ORGANIZACJA } from '../../core/stowarzyszenie-data';
 
 @Component({
   selector: 'app-nawigacja',
@@ -12,9 +12,7 @@ import { ORGANIZACJA, SPRAWOZDANIA } from '../../core/stowarzyszenie-data';
 })
 export class NawigacjaComponent {
   org = ORGANIZACJA;
-  lata = SPRAWOZDANIA.map(s => s.rok);
   menuOtwarte = false;
-  raportyOtwarte = false;
 
   przelaczMenu(): void {
     this.menuOtwarte = !this.menuOtwarte;
@@ -22,6 +20,5 @@ export class NawigacjaComponent {
 
   zamknijMenu(): void {
     this.menuOtwarte = false;
-    this.raportyOtwarte = false;
   }
 }

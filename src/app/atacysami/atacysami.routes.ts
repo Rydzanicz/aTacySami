@@ -21,6 +21,10 @@ export const ATACYSAMI_ROUTES: Routes = [
         loadComponent: () => import('./strony/o-nas/o-nas.component').then(m => m.ONasComponent)
       },
       {
+        path: 'aktualnosci',
+        loadComponent: () => import('./strony/aktualnosci/aktualnosci.component').then(m => m.AktualnosciComponent)
+      },
+      {
         path: 'statut',
         loadComponent: () => import('./strony/statut/statut.component').then(m => m.StatutComponent)
       },
