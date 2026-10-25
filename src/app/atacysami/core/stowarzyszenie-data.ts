@@ -58,7 +58,6 @@ export const ORGANIZACJA = {
   adres: '59-300 Lubin, Aleja Komisji Edukacji Narodowej 6, woj. dolnośląskie',
   telefon: '665-044-559',
   email: 'atacysami@gazeta.pl',
-  www: 'www.atacysami.pl.tl',
   konto: '78 1090 2082 0000 0001 1056 2462',
   misja:
     'Rozwijanie i propagowanie inicjatyw, postaw i działań sprzyjających rehabilitacji ' +

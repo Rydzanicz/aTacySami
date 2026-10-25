@@ -1,0 +1,23 @@
+runtime: nodejs24
+
+env_variables:
+  NODE_ENV: production
+
+automatic_scaling:
+  max_instances: 10
+  min_instances: 0
+
+handlers:
+  - url: /assets
+    static_dir: dist/atacysami/browser/assets
+    secure: always
+
+  - url: /(.*\..*)
+    static_files: dist/atacysami/browser/\1
+    upload: dist/atacysami/browser/(.*\..*)
+    secure: always
+
+  - url: /.*
+    static_files: dist/atacysami/browser/index.html
+    upload: dist/atacysami/browser/index.html
+    secure: always
